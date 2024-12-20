@@ -7,6 +7,12 @@ h1 {
   font-size: 20px;
 }
 
+
+h1 a {
+  font-size: 16px;
+  font-weight: normal;
+}
+
 .back-link {
   text-align: right;
 }
