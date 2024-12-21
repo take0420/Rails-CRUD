@@ -9,9 +9,11 @@
     <%= link_to post.title, post_path(post)%>
     <%= link_to "Edit", edit_post_path(post)%>
     <%= button_to "Delete",
-        post_path(post), 
-        method: :delete,
-        form: { class: "delete-form" } %>
+      post_path(post), 
+      method: :delete,
+      form: { class: "delete-form" },
+      data: { turbo_confirm: "削除してよろしいですか？" }
+    %>
   </li>
   <% end %>
 </ul>
