@@ -10,4 +10,9 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
   end
+
+  def create
+    Post.create(title: params[:post][:title], body: params[:post][:body])
+    redirect_to root_path
+  end
 end
