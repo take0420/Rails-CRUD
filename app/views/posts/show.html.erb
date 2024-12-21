@@ -1,4 +1,5 @@
 <h1><%= @post.title %></h1>
-<p><%= @post.body %></p>
+<%= simple_format(@post.body) %>
+
 
 <p class="back-link"><%= link_to "Back", root_path %></p>
