@@ -4,11 +4,27 @@
   <div>
     <%= form.label :title %>
     <%= form.text_field :title %>
+    <% if @post.errors.full_messages_for(:title).any? %>
+    <ul>
+      <%= @post.errors.full_messages_for(:title).each do |message| %>
+        <li><%= message %></li>
+      <% end%>  
+    </ul>
+    <% end%>
   </div>
+
   <div>
     <%= form.label :body %>
     <%= form.text_area :body %>
+    <% if @post.errors.full_messages_for(:body).any? %>
+    <ul>
+      <%= @post.errors.full_messages_for(:body).each do |message| %>
+        <li><%= message %></li>
+      <% end%>  
+    </ul>
+    <% end%>
   </div>
+
   <div>
     <%= form.submit %>
   </div>
