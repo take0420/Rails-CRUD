@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(title: params[:post][:title], body: params[:post][:body])
+    Post.create(params.require(:post).permit(:title, :body))
     redirect_to root_path
   end
 end
