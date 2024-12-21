@@ -27,3 +27,7 @@ textarea {
   padding: 8px;
   box-sizing: border-box;
 }
+
+.delete-form {
+  display: inline;  
+}
