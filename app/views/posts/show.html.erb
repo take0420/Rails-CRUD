@@ -5,11 +5,37 @@
   <h2>Comments</h2>
   <ul>
     <% @post.comments.each do |comment| %>
-    <li>
-      <%= comment.body %>
-    </li>
+      <% if comment.persisted? %>
+        <li>
+          <%= comment.body %>
+          <%= button_to "Delete",
+            post_comment_path(post_id: @post.id, id: comment.id), 
+            method: :delete,
+            form: { class: "delete-form" }
+          %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
+<% end %>
+
+<h2>Add a Comment</h2>
+<%= form_with model: [@post, @post.comments.build] do |form| %>
+  <div>
+    <%= form.text_field :body %>
+    <% if @comment.errors.any? %>
+      <ul>
+        <% @comment.errors.full_messages_for(:body).each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+        <% end %>
+      </ul>
+    <% end %>    
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
 <% end %>
 
 <p class="back-link"><%= link_to "Back", root_path %></p>
